@@ -1,5 +1,26 @@
 # Arduino LoRa
 
+# Additions by Neo7530
+
+- Added CAD-Mode Gateway. It simply retransmits received data with inverted carrier (InvertIQ)
+- Added XTEA-Encryption example
+- Added XTEA Node with Menu for Frequency settings, SF settings, switchable encryption, tx-power-settings menu and manually addressable Text-Chat
+
+T = Enters Power selection Menu
+S = Enters spreading-factor menu
+E = Switch encryption on / off
+R = Performs a Soft-Reset
+
+# Send a Message
+
+p 123456 textmessage to send\n     (p or P for paging [SPACE] numerical receipient address [SPACE] text to transmit [NL/CR]
+
+The SYSKEY have to be EQUAL on each Node. The Serial have to be UNIQUE on each node. Each node calculates its own device-key on bootup. The device-key for receipient will be calculated on transmission. For a echo-test send a message to your own serial# via Gateway.
+
+The Gateway have a unencrypted Beacon. It sends the beacon-message with sf12, sf11, sf10, sf9, sf8 and sf7, and switches back to SFXX. This can be used for distance tests. ( How far can i read a message in which SF ).
+
+Have Fun. Neo.
+
 [![Build Status](https://travis-ci.org/sandeepmistry/arduino-LoRa.svg?branch=master)](https://travis-ci.org/sandeepmistry/arduino-LoRa)
 
 An [Arduino](https://arduino.cc/) library for sending and receiving data using [LoRa](https://www.lora-alliance.org/) radios.
